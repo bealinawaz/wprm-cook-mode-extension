@@ -1,0 +1,92 @@
+/* WP Recipe Maker Cook Mode Extension CSS */
+.wprm-cook-mode-container {
+    display: flex;
+    flex-direction: column;
+    font-family: inherit;
+}
+
+.wprm-cook-mode-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.wprm-cook-mode-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    margin: 0;
+}
+
+.wprm-cook-mode-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+}
+
+.wprm-cook-mode-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.wprm-cook-mode-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.wprm-cook-mode-switch input:checked + .wprm-cook-mode-slider {
+    background-color: #007cba;
+}
+
+.wprm-cook-mode-switch input:focus + .wprm-cook-mode-slider {
+    box-shadow: 0 0 1px #007cba;
+}
+
+.wprm-cook-mode-switch input:checked + .wprm-cook-mode-slider:before {
+    transform: translateX(26px);
+}
+
+.wprm-cook-mode-status {
+    font-weight: 500;
+}
+
+.wprm-cook-mode-status.active {
+    color: #46b450;
+}
+
+.wprm-cook-mode-status.error {
+    color: #dc3232;
+}
+
+@media print {
+    .wprm-hide-on-print {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .wprm-cook-mode-toggle {
+        flex-wrap: wrap;
+    }
+    
+    .wprm-cook-mode-label,
+    .wprm-cook-mode-description {
+        font-size: 14px !important;
+    }
+}
